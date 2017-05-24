@@ -2,9 +2,6 @@ import datetime
 from models import Orders, session
 
 
-TODAY = datetime.date.today()
-
-
 def get_last_order_waiting_time():
     last_order = session.query(Orders).filter(
                                     Orders.confirmed.isnot(None)).order_by(
