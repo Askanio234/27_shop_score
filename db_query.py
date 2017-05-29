@@ -7,7 +7,7 @@ def get_last_order_waiting_time():
                                     Orders.confirmed.isnot(None)).order_by(
                                     Orders.id.desc()).first()
     time_delta = last_order.confirmed - last_order.created
-    return round(time_delta.seconds/60)
+    return round(time_delta.seconds/60, 1)
 
 
 def get_unprocessed_orders():
