@@ -3,12 +3,12 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from config import db_configuration
 
-Base = automap_base()
+base = automap_base()
 
 engine = create_engine(db_configuration)
 
-Base.prepare(engine, reflect=True)
+base.prepare(engine, reflect=True)
 
-Orders = Base.classes.orders
+orders = base.classes.orders
 
 session = Session(engine)
