@@ -1,4 +1,5 @@
 import datetime
+import os
 from flask import Flask, render_template, request, send_from_directory
 from db_query import get_order_waiting_time, get_unprocessed_orders, get_orders_processed_today
 
@@ -22,4 +23,6 @@ def fetch_robots_txt():
 
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.getenv("port", 5000))
+    host = os.getenv("host", "0.0.0.0")
+    app.run(host=host, port=port)

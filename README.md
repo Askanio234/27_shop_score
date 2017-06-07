@@ -41,7 +41,7 @@ python server.py
 ```
 Затем открыть в браузере [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-Пример, запущенный на [Heroku](https://damp-ravine-95816.herokuapp.com/)
+Пример, запущенный на [Heroku](https://frozen-headland-34365.herokuapp.com/)
 
 # Цели проекта
 
