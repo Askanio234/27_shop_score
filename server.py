@@ -23,6 +23,6 @@ def fetch_robots_txt():
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("port", 5000))
+    port = int(os.getenv("PORT", 5000))
     host = os.getenv("host", "0.0.0.0")
     app.run(host=host, port=port)
