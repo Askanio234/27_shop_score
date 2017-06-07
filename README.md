@@ -20,9 +20,18 @@
 pip install -r requirements.txt
 ```
 ## Создаем подключение к БД:
-для этого в корневую папку проекта добавляем файл ```config.py```,
-где переменной ```db_configuration``` присваиваем значение формата
+для этого создадим переменную окружения ```db_conf```,
+и присваиваем ей значение формата
 **'postgresql://user:password@host:port/'**
+
+*Для Windows*
+```#!bash
+SET db_conf=postgresql://user:password@host:port/
+```
+*Для Linux*
+```#!bash
+db_conf=postgresql://user:password@host:port/
+```
 
 ## Запуск серверного скрипта
 
