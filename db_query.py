@@ -2,11 +2,12 @@ import datetime
 from models import orders, session
 
 
-def get_last_order_waiting_time():
-    last_order = session.query(orders).filter(
-                                    orders.confirmed.isnot(None)).order_by(
-                                    orders.id.desc()).first()
-    time_delta = last_order.confirmed - last_order.created
+def get_order_waiting_time():
+    first_unconfirmed_order = session.query(orders).filter(
+                                                    orders.confirmed.is_(None)
+                                                    ).order_by(
+                                                    orders.created).first()
+    time_delta = datetime.datetime.now() - first_unconfirmed_order.created
     return round(time_delta.seconds/60, 1)
 
 
@@ -22,4 +23,3 @@ def get_orders_processed_today(today):
     return session.query(orders).filter(
                                 orders.confirmed.between(
                                 today_start, today_end)).count()
-

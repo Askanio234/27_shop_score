@@ -1,6 +1,6 @@
 import datetime
 from flask import Flask, render_template, request, send_from_directory
-from db_query import get_last_order_waiting_time, get_unprocessed_orders, get_orders_processed_today
+from db_query import get_order_waiting_time, get_unprocessed_orders, get_orders_processed_today
 
 TODAY = datetime.date.today()
 
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def score():
-    new_score = get_last_order_waiting_time()
+    new_score = get_order_waiting_time()
     unprocessed_orders = get_unprocessed_orders()
     orders_today = get_orders_processed_today(TODAY)
     return render_template('score.html', score=new_score,
